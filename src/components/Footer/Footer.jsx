@@ -16,6 +16,10 @@ const Footer = () => {
                 console.log('response.data', response.data)
                 setStrolls(response.data)
         })
+        .catch(error => {
+            console.error(error);
+        });
+        
     },[]);
 
   return (
@@ -26,7 +30,7 @@ const Footer = () => {
         whileInView="show"
         viewport={{once: false, amount: 0.25}}
         className={`paddings ${css.wrapper}`}>
-
+            
         <button id="developers"></button>
         <motion.div
             variants={footerVariants} 
@@ -54,17 +58,7 @@ const Footer = () => {
                 </div>
             </div>
 
-            <div>
-                <h3>List of Strolls</h3>
-                {strolls.map(stroll =>{
-                    return <div key={stroll._id}>
-                        <h3>{stroll.title}</h3>
-                        <p>{stroll.description}</p>
-                        <img src={stroll.img} alt={"stroll"} />
-                        <p>{stroll.duration}</p>
-                    </div>
-                }) }
-            </div>
+
 
         </motion.div>
         
