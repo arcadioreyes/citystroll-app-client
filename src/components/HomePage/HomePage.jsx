@@ -7,11 +7,11 @@ const HomePage = () => {
       <h1>Welcome to the HomePage</h1>
       <Link to={"/signuppage"}>
         {" "}
-        <button>SingUp</button>{" "}
+        <button>Sign Up</button>{" "}
       </Link>
       <Link to={"/loginpage"}>
         {" "}
-        <button>SingUp</button>{" "}
+        <button>Login</button>{" "}
       </Link>
     </div>
   );
