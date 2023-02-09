@@ -11,6 +11,11 @@ const SignUpPage = () => {
   });
 
   const handleChange = (e) => {};
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div>
       <h1>Welcome Stroller to the Sign Up Page!</h1>
