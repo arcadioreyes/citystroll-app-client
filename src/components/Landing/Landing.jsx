@@ -1,12 +1,12 @@
 import React from 'react'
-import css from './Home.module.scss'
+import css from './Landing.module.scss'
 import { motion } from 'framer-motion'
 import { staggerContainer } from '../../utils/motion'
 import { fadeIn } from '../../utils/motion'
 import Experties from '../Experties/Experties'
 import Footer from '../Footer/Footer'
 
-const Home = () => {
+const Landing = () => {
   return (
     <section className={`paddings ${css.wrapper}`}>
         <motion.div
@@ -64,4 +64,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Landing

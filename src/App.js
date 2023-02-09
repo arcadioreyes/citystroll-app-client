@@ -1,16 +1,25 @@
 import "./App.scss";
-import { Routes, Route } from "react-router-dom";
-import Home from "./components/Home/Home";
+import { Routes, Route, useLocation } from "react-router-dom";
+import Landing from "./components/Landing/Landing";
 import Header from "./components/Header/Header";
+import Navbar from "./components/Navbar/Navbar";
 import css from './styles/app.module.scss'
 
+//Pages
+import Home from './pages/Home';
+import StrollDetails from './pages/StrollDetails';
  
 function App() {
+  const location = useLocation();
+
   return (
     <div className={`bg-primary ${css.container}`}>
-      <Header/>
+      { location.pathname === "/" && <Header/>}
+      { location.pathname !== "/" && <Navbar/>}
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Landing />} />
+        <Route path="/stroll" element={<Home />} />
+        <Route path="/stroll/:id" element={<StrollDetails />} />
       </Routes>
     </div>
   );
