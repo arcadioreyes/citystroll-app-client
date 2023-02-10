@@ -13,11 +13,11 @@ const Banner = () => {
                     Discover the city's hidden gems, secret spots, and local flavors at your own pace. Say goodbye to generic tours and hello to an authentic and immersive city experience."
                 </p>
             </div>
-            <div className='hidden flex-1 lg:flex justify-end items-end'>
-                <img src="images/banner.png" alt="bannerImage" />
+            <div className='hidden flex-1 lg:flex justify-end items-end mr-14'>
+                <img src="images/test1.png" alt="bannerImage" />
             </div>
-            <Search/>
         </div>
+        <Search/>
     </section>
 
   )
