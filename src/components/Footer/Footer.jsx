@@ -4,24 +4,11 @@ import { motion } from 'framer-motion';
 import { staggerChildren } from '../../utils/motion';
 import { footerVariants } from '../../utils/motion';
 import { BsGithub } from "react-icons/bs";
-import { useState, useEffect }  from "react";
-import axios from 'axios';
+
+
 
 const Footer = () => {
-    const [strolls, setStrolls] = useState([]);
-
-    useEffect(() => {
-        axios.get('http://localhost:5005/strolls')
-            .then((response) => {
-                console.log('response.data', response.data)
-                setStrolls(response.data)
-        })
-        .catch(error => {
-            console.error(error);
-        });
-        
-    },[]);
-
+    
   return (
 
     <motion.section

@@ -12,6 +12,9 @@ const Banner = () => {
                 <p className='max-w-[480px] mb-8 '>
                     Discover the city's hidden gems, secret spots, and local flavors at your own pace. Say goodbye to generic tours and hello to an authentic and immersive city experience."
                 </p>
+                <p className='max-w-[480px] mb-8 '>
+                    Also you can make the most of your trip with a local insider
+                </p>
             </div>
             <div className='hidden flex-1 lg:flex justify-end items-end mr-14'>
                 <img src="images/test1.png" alt="bannerImage" />
