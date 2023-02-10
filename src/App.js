@@ -15,10 +15,10 @@ function App() {
   return (
     <div className={`bg-primary ${css.container}`}>
       { location.pathname === "/" && <Header/>}
-      { location.pathname !== "/" && <Navbar/>}
+      {/* { location.pathname !== "/" && <Navbar/>} */}
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="/stroll" element={<Home />} />
+        <Route path="/stroll" element={<Navbar/>} />
         <Route path="/stroll/:id" element={<StrollDetails />} />
       </Routes>
     </div>
