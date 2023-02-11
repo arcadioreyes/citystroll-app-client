@@ -50,12 +50,12 @@ const Header = () => {
           )}
           {!isLoggedIn && (
             <>
-              <Link to={"/signuppage"}>
+              <Link to={"/signup"}>
                 {" "}
                 <button>Sign Up</button>{" "}
               </Link>
 
-              <Link to={"/loginpage"}>
+              <Link to={"/login"}>
                 {" "}
                 <button>Login</button>{" "}
               </Link>

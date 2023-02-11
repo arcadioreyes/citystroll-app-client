@@ -25,7 +25,7 @@ const SignUpPage = () => {
     console.log(user);
     axios
       .post("http://localhost:5005/auth/signup", user)
-      .then(() => navigate("/loginpage"))
+      .then(() => navigate("/login"))
       .catch((err) => console.error(err));
   };
 

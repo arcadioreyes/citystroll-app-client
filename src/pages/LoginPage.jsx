@@ -51,16 +51,6 @@ const LoginPage = () => {
           />
           <br />
 
-          {/* <label htmlFor="username">Username:</label>
-          <br />
-          <input
-            type="text"
-            name="username"
-            value={user.username}
-            onChange={handleChange}
-          />
-          <br /> */}
-
           <label htmlFor="password">Password:</label>
           <br />
           <input
