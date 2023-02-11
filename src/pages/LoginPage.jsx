@@ -12,7 +12,7 @@ const LoginPage = () => {
 
   const navigate = useNavigate();
 
-  const { storeToken } = useContext(AuthContext);
+  const { storeToken, authenticateUser } = useContext(AuthContext);
 
   const handleChange = (e) => {
     const name = e.target.name;
@@ -29,6 +29,7 @@ const LoginPage = () => {
       .then((response) => {
         console.log("token", response.data.authToken);
         storeToken(response.data.authToken);
+        authenticateUser();
         navigate("/");
       })
       .catch((err) => console.error(err));
