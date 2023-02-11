@@ -3,12 +3,18 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 
 const HomePage = () => {
-  const { isLoggedIn, user } = useContext(AuthContext);
+  const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
 
   return (
     <div>
       <h1>Welcome to the HomePage</h1>
-      {isLoggedIn && <p>Welcome back {user.username}!</p>}
+
+      {isLoggedIn && (
+        <>
+          <p>Welcome back {user.username}!</p>
+          <button onClick={logOutUser}>Log out</button>
+        </>
+      )}
 
       {!isLoggedIn && (
         <>

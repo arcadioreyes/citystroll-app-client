@@ -14,7 +14,7 @@ const Header = () => {
   const [menuOpened, setMenuOpened] = useState(false);
   const headerShadow = useHeaderShadow();
   const menuRef = useRef();
-  const { isLoggedIn, user } = useContext(AuthContext);
+  const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
 
   useOutsideAlerter({
     menuRef,
@@ -42,6 +42,12 @@ const Header = () => {
             <a href="#developers"> Developers</a>
           </li>
 
+          {isLoggedIn && (
+            <>
+              <p>Welcome back {user.username}!</p>
+              <button onClick={logOutUser}>Log out</button>
+            </>
+          )}
           {!isLoggedIn && (
             <>
               <Link to={"/signuppage"}>
