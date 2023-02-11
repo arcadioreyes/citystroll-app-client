@@ -1,4 +1,4 @@
-import React from "react";
+import { useContext } from "react";
 import css from "./Header.module.scss";
 import { motion } from "framer-motion";
 import { headerVariants } from "../../utils/motion";
@@ -8,11 +8,13 @@ import { useState, useRef } from "react";
 import useHeaderShadow from "../../hooks/useHeaderShadow";
 import useOutsideAlerter from "../../hooks/useOutsideAlerter";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/auth.context";
 
 const Header = () => {
   const [menuOpened, setMenuOpened] = useState(false);
   const headerShadow = useHeaderShadow();
   const menuRef = useRef();
+  const { isLoggedIn, user } = useContext(AuthContext);
 
   useOutsideAlerter({
     menuRef,
@@ -39,14 +41,20 @@ const Header = () => {
           <li>
             <a href="#developers"> Developers</a>
           </li>
-          <Link to={"/signuppage"}>
-            {" "}
-            <button>Sign Up</button>{" "}
-          </Link>
-          <Link to={"/loginpage"}>
-            {" "}
-            <button>Login</button>{" "}
-          </Link>
+
+          {!isLoggedIn && (
+            <>
+              <Link to={"/signuppage"}>
+                {" "}
+                <button>Sign Up</button>{" "}
+              </Link>
+
+              <Link to={"/loginpage"}>
+                {" "}
+                <button>Login</button>{" "}
+              </Link>
+            </>
+          )}
         </ul>
 
         <div

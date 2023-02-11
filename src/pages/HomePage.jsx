@@ -10,14 +10,18 @@ const HomePage = () => {
       <h1>Welcome to the HomePage</h1>
       {isLoggedIn && <p>Welcome back {user.username}!</p>}
 
-      <Link to={"/signuppage"}>
-        {" "}
-        <button>Sign Up</button>{" "}
-      </Link>
-      <Link to={"/loginpage"}>
-        {" "}
-        <button>Login</button>{" "}
-      </Link>
+      {!isLoggedIn && (
+        <>
+          <Link to={"/signuppage"}>
+            {" "}
+            <button>Sign Up</button>{" "}
+          </Link>
+          <Link to={"/loginpage"}>
+            {" "}
+            <button>Login</button>{" "}
+          </Link>
+        </>
+      )}
     </div>
   );
 };
