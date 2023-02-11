@@ -45,7 +45,15 @@ const Header = () => {
           {isLoggedIn && (
             <>
               <p>Welcome back {user.username}!</p>
-              <button onClick={logOutUser}>Log out</button>
+              <Link to={"/profile"}>
+                {" "}
+                <button>Profile</button>{" "}
+              </Link>
+
+              <Link to={"/"}>
+                {" "}
+                <button onClick={logOutUser}>Log out</button>
+              </Link>
             </>
           )}
           {!isLoggedIn && (

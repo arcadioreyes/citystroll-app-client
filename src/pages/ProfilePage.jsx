@@ -2,17 +2,20 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 
-const HomePage = () => {
-  const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
+const ProfilePage = () => {
+  const { isLoggedIn, user } = useContext(AuthContext);
 
   return (
     <div>
-      <h1>Welcome to the HomePage</h1>
+      <h1>This is your profile page {user.username}</h1>
 
       {isLoggedIn && (
         <>
           <p>Welcome back {user.username}!</p>
-          <button onClick={logOutUser}>Log out</button>
+          <br />
+
+          <img src={user.profilePicture} alt={"User's Profile picture"} />
+          <br />
         </>
       )}
 
@@ -32,4 +35,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default ProfilePage;
