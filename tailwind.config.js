@@ -18,11 +18,19 @@ module.exports = {
     },
     extend: {
       colors: {
-        primary: '##F8F7F1',
+        primary: '#F8F7F1',
         secondary: '#7F56D9',
+        customPrimary: '#ed7771',
+        customSecondary: '#f6dd83',
+        customThird: '#645888 ',
+      },
+      textColor: {
+        custom: '#ed7771',
+        customThird:'#645888' 
       },
       boxShadow: {
         1: '0px 4px 30px rgba(0, 0, 0, 0.08)',
+        2: '0px 4px 30px rgba(238, 238, 238, 1.5)',
       },
     },
   },

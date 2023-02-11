@@ -10,15 +10,15 @@ const [isOpen, setIsOpen] = useState('false')
   return (
     <Menu as='div' classname='dropdown relative'>
       <Menu.Button onClick={() => setIsOpen(!isOpen)} className='dropdown-btn w-full text-left'>
-        <RiMoneyEuroCircleLine className='dropdown-icon-primary'/>
+        <RiMoneyEuroCircleLine className='dropdown-icon-custom'/>
         <div>
           <div className='text-[15px] font-medium leading-tight'>Budget</div>
           <div className='text-[13px]'>Price average </div>
         </div>
         {isOpen ? (
-            <RiArrowDropUpLine className='dropdown-icon-secondary' />
+            <RiArrowDropUpLine className='dropdown-icon-custom' />
           ) : (
-            <RiArrowDropDownLine className='dropdown-icon-secondary' />
+            <RiArrowDropDownLine className='dropdown-icon-custom' />
           )}
       </Menu.Button>
       
