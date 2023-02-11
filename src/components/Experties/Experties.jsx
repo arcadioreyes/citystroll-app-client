@@ -45,12 +45,17 @@ const Experties = () => {
             <motion.div
             variants={textVariant(0.5)} 
             className={css.rightSide}>
-                <span className='primaryTextDevelop' id='#about'>About the App</span>
-                {
+                <span className='primaryTextDevelop' id='#about'>How It Works</span>
+                {/* {
                     AboutTheApp.map((text, i) => {
                         return <span className='secondaryText' key={i}>{text}</span>
                     })
-                }
+                } */}
+                <p className='secondaryText'>
+                <span className='text-customPrimary'>Strollapp</span>  - plan your perfect city getaway with itineraries created by local experts, read traveler reviews and share your own experience.
+                    <br /> A tool to create customized city travels with distance, cost, destinations, and time.
+                </p>
+
             </motion.div>
         </div>
     </motion.section>

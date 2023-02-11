@@ -17,7 +17,7 @@ const Banner = () => {
                 </p>
             </div>
             <div className='hidden flex-1 lg:flex justify-end items-end mr-14'>
-                <img src="images/test1.png" alt="bannerImage" />
+            <img src="images/mainPic.png" alt="bannerImage" style={{marginTop: '-48px'}} />
             </div>
         </div>
         <Search/>

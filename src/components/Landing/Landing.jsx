@@ -22,15 +22,15 @@ const Landing = () => {
                 variants={fadeIn("right", "tween", 0.2, 1)} 
                 className='primaryText'>
 
-                    Enjoy the city like a local
+                    Enjoy the city <span className='text-customPrimary'>like a local</span> 
                     <br /> 
                     every time
                 </motion.span>
                 <motion.span
                 variants={fadeIn("left", "tween", 0.4, 1)}  
-                className='secondaryText'>Create customized travel routes 
+                className='secondaryText'>Create <span className='text-customSecondary'>customized</span> travel routes! 
                     <br/>
-                    and experience cities in a unique way!
+                    
                 </motion.span>
 
             </div>
@@ -48,11 +48,11 @@ const Landing = () => {
                  variants={fadeIn("right", "tween", 0.2, 1)}
                  className={css.experience}>
 
-                    <div className="primaryText">+1000</div>
+                    <div className="primaryText"><span className='text-customPrimary'>+1000</span></div>
 
                     <div className="secondaryText">
-                        <div>Travel</div>
-                        <div>Routes</div>
+                        <div >Travel</div>
+                        <div >Routes</div>
                     </div>
 
                 </motion.div>

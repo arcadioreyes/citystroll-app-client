@@ -8,11 +8,10 @@ const Navbar = () => {
         <header className='py-6 mb-12 border-b'>
             <div className='container mx-auto flex justify-between items-center'>
                 <Link to="/">
-                    {/* <img src="images/Citystroll.png" alt="logo" />
-                    <a href="/">CityStroll</a> */}
-                    <div className={css.name}>
+                <img src="images/Stroll.png" alt="logo" width="100" height="100" />
+                    {/* <div className={css.name}>
                         <a href="/">CityStroll</a> 
-                    </div>
+                    </div> */}
                 </Link>
                 <div className='flex items-center gap-6'>
                     <Link className='hover:text-custom transition' to="">Log In</Link>
