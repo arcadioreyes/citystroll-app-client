@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/auth.context";
 
 const LoginPage = () => {
   const [user, setUser] = useState({
@@ -10,6 +11,8 @@ const LoginPage = () => {
   });
 
   const navigate = useNavigate();
+
+  const { storeToken } = useContext(AuthContext);
 
   const handleChange = (e) => {
     const name = e.target.name;
@@ -25,6 +28,7 @@ const LoginPage = () => {
       .post("http://localhost:5005/auth/login", user)
       .then((response) => {
         console.log("token", response.data.authToken);
+        storeToken(response.data.authToken);
         navigate("/");
       })
       .catch((err) => console.error(err));
