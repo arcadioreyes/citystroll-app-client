@@ -18,6 +18,12 @@
   .bg-customSecondary {
     background-color: #f6dd83;
   }
+  .bg-customthird {
+    background-color: #f4f4f3;
+  }
+  .bg-customPurple {
+    background-color: #645888 ;
+  }
 }
 
 @layer base {
@@ -38,6 +44,15 @@
   }
   .dropdown-icon-custom {
     @apply text-2xl mr-[18px] text-custom;
+  }
+  .dropdown-icon-customFour {
+    @apply text-2xl mr-[2px] text-customfour;
+  }
+  .dropdown-icon-customYellow {
+    @apply text-2xl mr-[2px] text-customSecondary;
+  }
+  .dropdown-icon-customPurple {
+    @apply text-2xl mr-[2px] text-customThird;
   }
   .dropdown-menu {
     @apply px-6 py-8 text-[15px] space-y-6 shadow-md bg-white absolute w-full z-10 list-none rounded-b-lg;

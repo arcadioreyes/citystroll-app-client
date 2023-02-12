@@ -23,10 +23,13 @@ module.exports = {
         customPrimary: '#ed7771',
         customSecondary: '#f6dd83',
         customThird: '#645888 ',
+        customfour: '#2cc166'
       },
       textColor: {
         custom: '#ed7771',
-        customThird:'#645888' 
+        customThird:'#645888',
+        customfour:'#2cc166 ',
+        customYellow:'#f7e9b5 '  
       },
       boxShadow: {
         1: '0px 4px 30px rgba(0, 0, 0, 0.08)',

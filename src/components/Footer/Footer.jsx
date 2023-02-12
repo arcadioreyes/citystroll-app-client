@@ -31,6 +31,7 @@ const Footer = () => {
                     <a href="https://github.com/axelclemente?tab=repositories" rel="noreferrer" target="_blank">Axel Clemente</a> <BsGithub className={css.icon} /> <br />
                     <a href="https://github.com/arcadioreyes/" rel="noreferrer" target="_blank">Arcadio Reyes</a> <BsGithub className={css.icon}/>
                 </span>
+                
             </div>
 
             <div className={css.right}>
