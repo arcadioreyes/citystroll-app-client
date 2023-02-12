@@ -28,8 +28,8 @@ const Footer = () => {
                     Full Stack Developers: <br />
                 </span>
                 <span className="primaryTextDevelop">
-                    <a href="https://github.com/axelclemente?tab=repositories" rel="noreferrer" target="_blank">Axel Clemente</a> <BsGithub className={css.icon} /> <br />
-                    <a href="https://github.com/arcadioreyes/" rel="noreferrer" target="_blank">Arcadio Reyes</a> <BsGithub className={css.icon}/>
+                    <a href="https://github.com/axelclemente?tab=repositories" rel="noreferrer" target="_blank">Axel Clemente🚀</a>  <br />
+                    <a href="https://github.com/arcadioreyes/" rel="noreferrer" target="_blank">Arcadio Reyes🚀</a> 
                 </span>
                 
             </div>

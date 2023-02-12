@@ -31,7 +31,7 @@ const Header = () => {
         style={{boxShadow: headerShadow}}
         >
       <div className={`flexCenter innerWidth ${css.container}`}>
-      <img src="images/Stroll.png" alt="logo" width="100" height="100" />
+      <img src="images/Stroll.png" alt="logo" width="100" height="100"/>
             
             <ul
             ref={menuRef} 
