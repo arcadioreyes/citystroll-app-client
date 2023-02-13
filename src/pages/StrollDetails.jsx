@@ -9,6 +9,16 @@ const StrollDetails = () => {
 
     const {id} = useParams();
 
+    const [activeModal, setActiveModal] = useState(null);
+
+    function openModal(modalClick) {
+      setActiveModal(modalClick);
+    }
+  
+    function closeModal() {
+      setActiveModal(null);
+    }
+
     useEffect(() => {
         axios.get(`http://localhost:5005/strolls/${id}`)
             .then((response) => {
@@ -20,6 +30,7 @@ const StrollDetails = () => {
             });
         
     },[id]);
+    
 
     if(Object.keys(strolls).length===0){
         return <p>Loading...</p>
@@ -35,8 +46,8 @@ const StrollDetails = () => {
                 <div class="qualification__container container">
                     <div class="qualification__tabs">
                         <div class="qualification__button button--flex qualification__active" data-target='#education'>
-                            <i class="uil uil-graduation-cap qualification__icon"></i>
-                            {`Strolling Time: ${strolls.duration}`}
+                        <i class="uil uil-clock-three" style={{color: 'rgb(100,88,136)'}}></i>
+                            <span style={{color: 'rgb(100,88,136)'}}>{strolls.duration}</span><i class="uil uil-location-point"style={{color: 'rgb(237,119,113)'}} > </i> <span style={{color: 'rgb(237,119,113)'}}>{strolls.distance}</span>
                         </div>
                     </div>
                     <div class="qualification__sections">
@@ -53,8 +64,8 @@ const StrollDetails = () => {
                                     </div>
                                 </div>
                                 <div>
-                                    <span class="qualification__rounder" style={{backgroundColor: 'rgb(100,88,136)'}}></span>
-                                    <span class="qualification__line" style={{backgroundColor: 'rgb(100,88,136)'}}></span>
+                                    <span class="qualification__rounder" style={{backgroundColor: 'rgb(104,105,152)'}}></span>
+                                    <span class="qualification__line" style={{backgroundColor: 'rgb(104,105,152)'}}></span>
                                     
                                 </div>
                             </div>
@@ -62,8 +73,8 @@ const StrollDetails = () => {
                             <div class="qualification__data">
                                 <div></div>
                                 <div>
-                                    <span class="qualification__rounder"></span>
-                                    <span class="qualification__line"></span>
+                                    <span class="qualification__rounder" style={{backgroundColor: 'rgb(104,105,152)'}}></span>
+                                    <span class="qualification__line"style={{backgroundColor: 'rgb(237,119,113)'}}></span>
                                 </div>
                                 <div>
                                     <h3 class="qualification__title">{strolls.stops2}</h3>
@@ -86,16 +97,16 @@ const StrollDetails = () => {
                                     </div>
                                 </div>
                                 <div>
-                                    <span class="qualification__rounder"></span>
-                                    <span class="qualification__line"></span>
+                                    <span class="qualification__rounder"style={{backgroundColor: 'rgb(237,119,113)'}}></span>
+                                    <span class="qualification__line"style={{backgroundColor: 'rgb(104,105,152)'}}></span>
                                 </div>
                             </div>
                             
                                 <div class="qualification__data">
                                     <div></div>
                                     <div>
-                                        <span class="qualification__rounder"></span>
-                                        <span class="qualification__line"></span> 
+                                        <span class="qualification__rounder"style={{backgroundColor: 'rgb(104,105,152)'}}></span>
+                                        <span class="qualification__line"style={{backgroundColor: 'rgb(104,105,152)'}}></span> 
                                     </div>
                                     <div>
                                         <h3 class="qualification__title">{strolls.stops4}</h3>
@@ -119,15 +130,15 @@ const StrollDetails = () => {
                                     </div>
                                 </div>
                                 <div>
-                                    <span class="qualification__rounder"></span>
-                                    <span class="qualification__line"></span>
+                                    <span class="qualification__rounder"style={{backgroundColor: 'rgb(104,105,152)'}}></span>
+                                    <span class="qualification__line"style={{backgroundColor: 'rgb(237,119,113)'}}></span>
                                 </div>
                             </div>
 
                             <div class="qualification__data">
                                     <div></div>
                                     <div>
-                                        <span class="qualification__rounder"></span>
+                                        <span class="qualification__rounder"style={{backgroundColor: 'rgb(237,119,113)'}}></span>
                                         
                                     </div>
                                     <div>
@@ -197,7 +208,47 @@ const StrollDetails = () => {
                         </div>
                     </div>
                 </div>
+
+                <div className="services__container container grid">
+      <div className="services__content">
+        <div>
+          <i className="uil uil-window-grid services__icon"></i>
+          <h3 className="services__title">Development  & Design</h3>
+        </div>
+        <span className="button button--flex button--small button--link services__button" onClick={() => openModal(0)}>
+          View More
+          <i className="uil uil-arrow-right button__icon"></i>
+        </span>
+        <div className={activeModal === 0 ? "services__modal active-modal" : "services__modal"}>
+          <div className="services__modal-content">
+            <h4 className="services__modal-title">Development  & Design</h4>
+            <i className="uil uil-times services__modal-close" onClick={closeModal}></i>
+            <ul className="services__modal-services grid">
+              <li className="services__modal-service">
+                <i className="uil uil-check-circle services__modal-icon"></i>
+                <p>I develop the user interface.</p>
+              </li>
+              <li className="services__modal-service">
+                <i className="uil uil-check-circle services__modal-icon"></i>
+                <p>Web page development.</p>
+              </li>
+              <li className="services__modal-service">
+                <i className="uil uil-check-circle services__modal-icon"></i>
+                <p>I create ux element.</p>
+              </li>
+              <li className="services__modal-service">
+                <i className="uil uil-check-circle services__modal-icon"></i>
+                <p>I position xs brand.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+                
             </section>
+
+            
             
             
     
