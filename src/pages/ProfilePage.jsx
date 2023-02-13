@@ -32,21 +32,19 @@ const ProfilePage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const storedToken = localStorage.getItem("authToken");
-
-    axios.put(
-      "http://localhost:5005/api/users",
-      { image: imageUrl },
-      { headers: { Authorization: `Bearer ${storedToken}` } }
-        .then((response) => {
-          console.log("put response data", response.data);
-          setUser(response.data);
-          setImageUrl("");
-        })
-
-        .catch((err) => console.log(err))
-    );
+    axios
+      .put(
+        "http://localhost:5005/api/users",
+        { image: imageUrl },
+        { headers: { Authorization: `Bearer ${storedToken}` } }
+      )
+      .then((response) => {
+        console.log(" put response data", response.data);
+        setUser(response.data);
+        setImageUrl("");
+      })
+      .catch((err) => console.log(err));
   };
-
   return (
     <div>
       <h1>Hi {user.username} this is your profile page! </h1>
@@ -73,8 +71,6 @@ const ProfilePage = () => {
               name="imageUrl"
               onChange={(e) => handleFileUpload(e)}
             />
-            <br />
-            <br />
             <button type="submit">Update User Image</button>
           </form>
         </>
