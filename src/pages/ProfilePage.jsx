@@ -5,7 +5,7 @@ import { AuthContext } from "../context/auth.context";
 import placeholderProfilePicture from "../images/avatar.png";
 
 const ProfilePage = () => {
-  const [profilePicture, setProfilePicture] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
   const { isLoggedIn, user, setUser } = useContext(AuthContext);
 
   const handleFileUpload = (e) => {
@@ -13,9 +13,9 @@ const ProfilePage = () => {
 
     const uploadData = new FormData();
 
-    // profilePicture => this name has to be the same as in the model since we pass
+    // imageUrl=> this name has to be the same as in the model since we pass
     // req.body to .create() method when creating a new movie in '/api/movies' POST route
-    uploadData.append("profilePicture", e.target.files[0]);
+    uploadData.append("imageUrl", e.target.files[0]);
 
     // service
     //   .uploadImage(uploadData)
@@ -24,7 +24,7 @@ const ProfilePage = () => {
       .then((response) => {
         // console.log("response is: ", response);
         // response carries "fileUrl" which we can use to update the state
-        setProfilePicture(response.data.fileUrl);
+        setImageUrl(response.data.fileUrl);
       })
       .catch((err) => console.log("Error while uploading the file: ", err));
   };
@@ -35,13 +35,13 @@ const ProfilePage = () => {
     axios
       .put(
         "http://localhost:5005/api/users",
-        { profilePicture: profilePicture },
+        { profilePicture: imageUrl },
         { headers: { Authorization: `Bearer ${storedToken}` } }
       )
       .then((response) => {
         console.log(" put response data", response.data);
         setUser(response.data);
-        setProfilePicture("");
+        setImageUrl("");
       })
       .catch((err) => console.log(err));
   };
