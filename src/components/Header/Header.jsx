@@ -45,6 +45,12 @@ const Header = () => {
           {isLoggedIn && (
             <>
               <p>Welcome back {user.username}!</p>
+
+              <Link to={"/"}>
+                {" "}
+                <button>Home</button>{" "}
+              </Link>
+
               <Link to={"/profile"}>
                 {" "}
                 <button>Profile</button>{" "}
