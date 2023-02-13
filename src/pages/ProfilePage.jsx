@@ -47,32 +47,36 @@ const ProfilePage = () => {
   };
   return (
     <div>
-      <h1>Hi {user.username} this is your profile page! </h1>
-
-      {isLoggedIn && (
+      {user && (
         <>
-          <p>Welcome back {user.username}!</p>
-          <br />
-          <img
-            src={
-              user.profilePicture
-                ? user.profilePicture
-                : placeholderProfilePicture
-            }
-            alt={"User's Profile"}
-            className="profilePicture"
-          />
-          <br />
+          <h1>Hi {user.username} this is your profile page! </h1>
 
-          <h2>Update image form</h2>
-          <form onSubmit={handleSubmit}>
-            <input
-              type="file"
-              name="profilePicture"
-              onChange={(e) => handleFileUpload(e)}
-            />
-            <button type="submit">Update User Image</button>
-          </form>
+          {isLoggedIn && (
+            <>
+              <p>Welcome back {user.username}!</p>
+              <br />
+              <img
+                src={
+                  user.profilePicture
+                    ? user.profilePicture
+                    : placeholderProfilePicture
+                }
+                alt={"User's Profile"}
+                className="profilePicture"
+              />
+              <br />
+
+              <h2>Update image form</h2>
+              <form onSubmit={handleSubmit}>
+                <input
+                  type="file"
+                  name="profilePicture"
+                  onChange={(e) => handleFileUpload(e)}
+                />
+                <button type="submit">Update User Image</button>
+              </form>
+            </>
+          )}
         </>
       )}
 
