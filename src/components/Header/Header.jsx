@@ -66,6 +66,7 @@ const Header = () => {
                 {" "}
                 <button>Home</button>{" "}
               </Link>
+
               <Link to={"/signup"}>
                 {" "}
                 <button>Sign Up</button>{" "}
