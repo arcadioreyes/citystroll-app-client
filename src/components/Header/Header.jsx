@@ -62,6 +62,10 @@ const Header = () => {
           )}
           {!isLoggedIn && (
             <>
+              <Link to={"/"}>
+                {" "}
+                <button>Home</button>{" "}
+              </Link>
               <Link to={"/signup"}>
                 {" "}
                 <button>Sign Up</button>{" "}
