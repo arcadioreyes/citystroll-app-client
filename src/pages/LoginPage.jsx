@@ -10,6 +10,8 @@ const LoginPage = () => {
     password: "",
   });
 
+  const [errorMessage, setErrorMessage] = useState(null);
+
   const navigate = useNavigate();
 
   const { storeToken, authenticateUser } = useContext(AuthContext);
@@ -32,7 +34,11 @@ const LoginPage = () => {
         authenticateUser();
         navigate("/");
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        console.error(err);
+        const errorDescription = err.response.data.message;
+        setErrorMessage(errorDescription);
+      });
   };
 
   return (
@@ -64,6 +70,8 @@ const LoginPage = () => {
 
           <button type="submit">Login!</button>
         </form>
+
+        {errorMessage && <p>{errorMessage}</p>}
       </div>
     </>
   );
