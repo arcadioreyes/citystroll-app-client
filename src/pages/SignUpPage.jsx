@@ -12,6 +12,8 @@ const SignUpPage = () => {
     profilePicture: "",
   });
 
+  const [errorMessage, setErrorMessage] = useState(null);
+
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -23,11 +25,14 @@ const SignUpPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(user);
     axios
       .post("http://localhost:5005/auth/signup", user)
       .then(() => navigate("/login"))
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        console.error(err);
+        const errorDescription = err.response.data.message;
+        setErrorMessage(errorDescription);
+      });
   };
 
   return (
@@ -90,6 +95,7 @@ const SignUpPage = () => {
 
         <button type="submit">Create my account</button>
       </form>
+      {errorMessage && <p>{errorMessage}</p>}
     </div>
   );
 };

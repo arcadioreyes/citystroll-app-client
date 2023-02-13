@@ -73,6 +73,8 @@ const ProfilePage = () => {
                   name="profilePicture"
                   onChange={(e) => handleFileUpload(e)}
                 />
+                <br />
+                <br />
                 <button type="submit">Update User Image</button>
               </form>
             </>
