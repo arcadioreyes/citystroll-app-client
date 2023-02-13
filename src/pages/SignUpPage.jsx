@@ -9,6 +9,7 @@ const SignUpPage = () => {
     password: "",
     country: "",
     city: "",
+    profilePicture: "",
   });
 
   const navigate = useNavigate();
