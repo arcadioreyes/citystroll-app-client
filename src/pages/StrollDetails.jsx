@@ -50,7 +50,7 @@ const StrollDetails = () => {
                     <div class="qualification__tabs">
                         <div class="qualification__button button--flex qualification__active">
                         <i class="uil uil-location-point"style={{color: 'rgb(237,119,113)'}}></i> 
-                        <span style={{color: 'rgb(237,119,113)'}}>{strolls.distance}</span>
+                        <img src={strolls.img1} alt="" />
                         </div>
                     </div>
                     <div class="qualification__sections">
@@ -59,14 +59,14 @@ const StrollDetails = () => {
                             
                             <div class="qualification__data">
                                 <div className="services__content">
-                                <h3 class="qualification__title " onClick={() => openModal(0)}>{strolls.stops1}</h3>
+                                <h3 class="qualification__title " onClick={() => openModal(0)}> <span> <a href="https://goo.gl/maps/5ZvWXCvVk6TrEL499" target="_blank"><i class="uil uil-map-marker-alt"></i></a></span> {strolls.stops1}</h3>
                                     <span class="qualification__subtitle">Caracas - University</span>
                                     <div class="qualification__calendar">
                                         <i class="uil uil-calendar-alt"></i>
                                         2009-2015
                                     </div>
                                     <span className="button button--flex button--small button--link services__button" onClick={() => openModal(0)}>
-                                        View More
+                                        Info More
                                         <i className="uil uil-arrow-right button__icon"></i>
                                     </span>
                                 </div>
@@ -91,7 +91,7 @@ const StrollDetails = () => {
                                         2015-2016
                                     </div>
                                     <span className="button button--flex button--small button--link services__button" onClick={() => openModal(1)}>
-                                        View More
+                                        Info More
                                         <i className="uil uil-arrow-right button__icon"></i>
                                     </span>
                                 </div>
@@ -107,7 +107,7 @@ const StrollDetails = () => {
                                         2018-2019
                                     </div>
                                     <span className="button button--flex button--small button--link services__button" onClick={() => openModal(2)}>
-                                        View More
+                                        Info More
                                         <i className="uil uil-arrow-right button__icon"></i>
                                     </span>
                                 </div>
@@ -131,7 +131,7 @@ const StrollDetails = () => {
                                             2022-2023
                                         </div>
                                         <span className="button button--flex button--small button--link services__button" onClick={() => openModal(3)}>
-                                        View More
+                                        Info More
                                         <i className="uil uil-arrow-right button__icon"></i>
                                     </span>
                                     </div>
@@ -148,7 +148,7 @@ const StrollDetails = () => {
                                         2018-2019
                                     </div>
                                     <span className="button button--flex button--small button--link services__button" onClick={() => openModal(4)}>
-                                        View More
+                                        Info More
                                         <i className="uil uil-arrow-right button__icon"></i>
                                     </span>
                                 </div>
@@ -173,7 +173,7 @@ const StrollDetails = () => {
                                                 2022-2023
                                             </div>
                                             <span className="button button--flex button--small button--link services__button" onClick={() => openModal(5)}>
-                                                View More
+                                                Info More
                                                 <i className="uil uil-arrow-right button__icon"></i>
                                             </span>
                                         </div>
@@ -200,16 +200,16 @@ const StrollDetails = () => {
 
                                 <ul className="services__modal-services grid">
                                     <li className="services__modal-service">
-                                        <i className="uil uil-check-circle services__modal-icon"></i>
-                                        <p>I develop the user interface.</p>
+                                        <i className="uil uil-parking-circle services__modal-icon"></i>
+                                        <p>Nearest parking .</p>
                                     </li>
                                     <li className="services__modal-service">
                                         <i className="uil uil-check-circle services__modal-icon"></i>
-                                        <p>Web page development.</p>
+                                        <img src={strolls.img5} alt="" />
                                     </li>
                                     <li className="services__modal-service">
                                         <i className="uil uil-check-circle services__modal-icon"></i>
-                                        <p>I create ux element.</p>
+                                        <p>{strolls.description}</p>
                                     </li>
                                     <li className="services__modal-service">
                                         <i className="uil uil-check-circle services__modal-icon"></i>

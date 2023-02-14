@@ -147,6 +147,18 @@ const StrollList = () => {
         
     },[]);
 
+    const handleFavoriteClick = async (strollId) => {
+        try{
+            const userId = 'your-user-id-here'; // replace with actual user ID
+            const response = await axios.post(`http://localhost:5005/users/${userId}/list`, {
+            strollId,
+        });
+        console.log(`Saving stroll ${response.data} to favorites`);
+        } catch (error) {
+        console.error(error);
+    }};
+      
+
     return (
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {strolls.map(stroll => {
@@ -187,7 +199,11 @@ const StrollList = () => {
                                 {stroll.title.charAt(0).toUpperCase() + stroll.title.slice(1)}
                             </Link> 
                         </div>
-                        <div className="text-red">{stroll.budget}€ avg.</div>
+                        <div className='flex' style={{justifyContent: 'space-between'}}>
+                            <div className="text-red">{stroll.budget}€ avg.</div>
+                            <i class="uil uil-heart-sign" style={{fontSize: '24px', color: '#ed7771', cursor:'pointer'}} onClick={() => handleFavoriteClick(stroll._id)}></i>
+                        </div>
+                        
                     </div>
                 )
             })}

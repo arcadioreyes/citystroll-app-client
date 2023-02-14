@@ -7,7 +7,7 @@ const Navbar = () => {
   return (
         <header className='py-6 mb-12 border-b'>
             <div className='container mx-auto flex justify-between items-center'>
-                <Link to="/">
+                <Link to="/stroll">
                 <img src="images/Stroll.png" alt="logo" width="100" height="100" />
                     {/* <div className={css.name}>
                         <a href="/">CityStroll</a> 
