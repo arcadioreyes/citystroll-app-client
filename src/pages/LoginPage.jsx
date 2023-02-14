@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
 
 const LoginPage = () => {
   const [user, setUser] = useState({
