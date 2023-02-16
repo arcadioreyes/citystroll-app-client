@@ -67,14 +67,15 @@ import { BiMenuAltRight } from "react-icons/bi";
 import { useState, useRef } from "react";
 import useHeaderShadow from "../../hooks/useHeaderShadow";
 import useOutsideAlerter from "../../hooks/useOutsideAlerter";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 
 const Header = () => {
   const [menuOpened, setMenuOpened] = useState(false);
   const headerShadow = useHeaderShadow();
   const menuRef = useRef();
-  const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
+  const { isLoggedIn, logOutUser } = useContext(AuthContext);
+  const { pathname } = useLocation();
 
   useOutsideAlerter({
     menuRef,
@@ -90,24 +91,33 @@ const Header = () => {
       className={`paddings ${css.wrapper}`}
       style={{ boxShadow: headerShadow }}
     >
-      <div className={`flexCenter innerWidth ${css.container}`}>
-      <img src="images/Stroll2.png" alt="logo" width="100" height="100"/>
-
+      <div className={`flexCenter mb-4 innerWidth ${css.container}`}>
+        <Link to="/stroll">
+          <img src="images/Stroll2.png" alt="logo" width="100" height="100"/>
+        </Link>
+      
         <ul
           ref={menuRef}
           style={getMenuStyles(menuOpened)}
           className={`flexCenter ${css.menu}`}
         >
-          <li>
-            <a href="#developers"> Developers</a>
-          </li>
+          {pathname === '/' && (
+            <a href="/stroll">
+              <span className='text-customPrimary'>Enter App</span>
+            </a>
+          )}
+          {pathname === '/stroll' && (
+            <a href="/">
+              <span className='text-customPrimary'>Home</span>
+            </a>
+          )}
 
           {isLoggedIn && (
             <>
-              <Link to={"/"}>
+              {/* <Link to={"/"}>
                 {" "}
                 <button>Home</button>{" "}
-              </Link>
+              </Link> */}
 
               <Link to={"/profile"}>
                 {" "}
@@ -118,24 +128,23 @@ const Header = () => {
                 {" "}
                 <button onClick={logOutUser}>Log out</button>
               </Link>
+
+              <div className='flex items-center gap-6'>
+                <Link to={"/users/:id/create"} className='bg-customBlue hover:bg-customSecondary px-4 py-3 rounded-lg transition' style={{ color: 'white' }}>Create</Link>
+              </div>
             </>
           )}
           {!isLoggedIn && (
             <>
-              <Link to={"/"}>
+              {/* <Link to={"/"}>
                 {" "}
                 <button>Home</button>{" "}
-              </Link>
+              </Link> */}
 
-              <Link to={"/signup"}>
-                {" "}
-                <button>Sign Up</button>{" "}
-              </Link>
-
-              <Link to={"/login"}>
-                {" "}
-                <button>Login</button>{" "}
-              </Link>
+              <div className='flex items-center gap-6'>
+                <Link to={"/login"} className='hover:text-custom transition'>Log In</Link>
+                <Link to={"/signup"} className='bg-customPrimary hover:bg-customSecondary px-4 py-3 rounded-lg transition' style={{ color: 'white' }}>Sign up</Link>
+              </div>
             </>
           )}
         </ul>
