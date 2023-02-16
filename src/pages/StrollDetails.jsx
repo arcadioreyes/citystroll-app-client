@@ -50,7 +50,8 @@ const StrollDetails = () => {
                     <div class="qualification__tabs">
                         <div class="qualification__button button--flex qualification__active">
                         <i class="uil uil-location-point"style={{color: 'rgb(237,119,113)'}}></i> 
-                        <img src={strolls.img1} alt="" />
+                        <img src={strolls.img1} alt="" /><i class="uil uil-heart-sign"></i>
+                        
                         </div>
                     </div>
                     <div class="qualification__sections">
@@ -59,7 +60,7 @@ const StrollDetails = () => {
                             
                             <div class="qualification__data">
                                 <div className="services__content">
-                                <h3 class="qualification__title " onClick={() => openModal(0)}> <span> <a href="https://goo.gl/maps/5ZvWXCvVk6TrEL499" target="_blank"><i class="uil uil-map-marker-alt"></i></a></span> {strolls.stops1}</h3>
+                                <h3 class="qualification__title " onClick={() => openModal(0)}> <span> <a href="https://goo.gl/maps/5ZvWXCvVk6TrEL499" target="_blank" rel="noreferrer"><i class="uil uil-map-marker-alt"></i></a></span> {strolls.stops1}</h3>
                                     <span class="qualification__subtitle">Caracas - University</span>
                                     <div class="qualification__calendar">
                                         <i class="uil uil-calendar-alt"></i>

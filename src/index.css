@@ -24,6 +24,9 @@
   .bg-customPurple {
     background-color: #645888 ;
   }
+  .bg-customBlue {
+    background-color: #2584c5 ;
+  }
 }
 
 @layer base {

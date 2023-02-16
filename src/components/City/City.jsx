@@ -8,7 +8,7 @@ const City = () => {
 const [isOpen, setIsOpen] = useState('false')
 
   return (
-    <Menu as='div' classname='dropdown relative'>
+    <Menu as='div' className='dropdown relative'>
       <Menu.Button onClick={() => setIsOpen(!isOpen)} className='dropdown-btn w-full text-left'>
         <RiMapPinLine className='dropdown-icon-custom'/>
         <div>

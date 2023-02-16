@@ -128,17 +128,23 @@
 
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { useState, useEffect }  from "react";
+import { useState, useEffect, useContext }  from "react";
 import axios from 'axios';
-import { RiUserHeartLine, RiTimerLine, RiWalkFill, RiMoneyEuroCircleLine, RiBankLine   } from 'react-icons/ri';
+import { RiUserHeartLine, RiTimerLine, RiWalkFill} from 'react-icons/ri';
+import { useParams } from 'react-router-dom';
+import { AuthContext } from '../../context/auth.context';
 
 const StrollList = () => {
     const [strolls, setStrolls] = useState([]);
 
+    const { user } = useContext(AuthContext);
+
+    const [isStrollAdded, setIsStrollAdded] = useState(false);
+
     useEffect(() => {
         axios.get('http://localhost:5005/strolls')
             .then((response) => {
-                console.log('response.data', response.data)
+                // console.log('response.data', response.data)
                 setStrolls(response.data)
             })
             .catch(error => {
@@ -147,16 +153,31 @@ const StrollList = () => {
         
     },[]);
 
-    const handleFavoriteClick = async (strollId) => {
-        try{
-            const userId = 'your-user-id-here'; // replace with actual user ID
-            const response = await axios.post(`http://localhost:5005/users/${userId}/list`, {
-            strollId,
+    const handleStrollClick = (strollId) => {
+        axios.post(`http://localhost:5005/users/${user._id}`, {
+          strollId: strollId
+        })
+        .then((response) => {
+          const updatedUser = response.data;
+          setStrolls((prevStrolls) => {
+            return prevStrolls.map((stroll) => {
+              if (stroll._id === strollId) {
+                return {
+                  ...stroll,
+                  list: updatedUser.list
+                };
+              } else {
+                return stroll;
+              }
+            });
+          });
+          setIsStrollAdded(true);
+        })
+        .catch((error) => {
+          console.error(error);
         });
-        console.log(`Saving stroll ${response.data} to favorites`);
-        } catch (error) {
-        console.error(error);
-    }};
+    };
+
       
 
     return (
@@ -167,6 +188,11 @@ const StrollList = () => {
                         <Link to={`/strolls/${stroll._id}`}>
                             <img className="mb-8" src={stroll.img1} alt="img" />
                         </Link>
+                        {isStrollAdded && (
+                        <p className="text-green-500 font-bold text-sm mb-2">
+                            Stroll has been added to your favorites
+                        </p>
+                        )}
                         <div className="mb-4">
                             <div className="text-sm mb-2">
                                 <span className="bg-customPrimary rounded-full text-white px-3">
@@ -201,7 +227,7 @@ const StrollList = () => {
                         </div>
                         <div className='flex' style={{justifyContent: 'space-between'}}>
                             <div className="text-red">{stroll.budget}€ avg.</div>
-                            <i class="uil uil-heart-sign" style={{fontSize: '24px', color: '#ed7771', cursor:'pointer'}} onClick={() => handleFavoriteClick(stroll._id)}></i>
+                            <i class="uil uil-heart-sign cursor-pointer" onClick={() => handleStrollClick(stroll._id)}></i>
                         </div>
                         
                     </div>
